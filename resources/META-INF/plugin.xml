@@ -1,17 +1,18 @@
 <idea-plugin>
     <id>com.nemesis.platform.nemesis-idea-plugin</id>
     <name>Nemesis Plugin for IntelliJIDEA</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <vendor email="support@nemesis.io" url="http://www.nemesis.io">Nemesis Software</vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      This plugin is designed for people using the Nemesis Application Development platform (http://nemesis.io).
+      For now the only functionality provided by the plugin is to enable faster import of CSV files in any running Nemesis Instance.
+      Upon installing the plugin you will get a new screen in your <pre>Settings</pre> menu - there you can configure the plugin
+      settings (url, username and password for the nemesis instance you want to work against).
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+     This is the first release of the Nemesis IDEA Plugin.
     ]]>
     </change-notes>
 
@@ -24,19 +25,18 @@
     <depends>com.intellij.modules.lang</depends>
     -->
 
-
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
-        <applicationService serviceInterface="com.nemesis.intellijdea.plugin.ConfigurationService"
-                            serviceImplementation="com.nemesis.intellijdea.plugin.ConfigurationService"/>
+        <applicationService serviceInterface="com.nemesis.intellijidea.plugin.ConfigurationService"
+                            serviceImplementation="com.nemesis.intellijidea.plugin.ConfigurationService"/>
 
         <applicationConfigurable id="NemesisPlugin.SettingsConfigurable" parentId="root"
-                                 instance="com.nemesis.intellijdea.plugin.NemesisSettingsConfigurable"/>
+                                 instance="com.nemesis.intellijidea.plugin.NemesisSettingsConfigurable"/>
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
-        <action id="com.nemesis.intellijidea.plugin.action.CsvImportAction" class="com.nemesis.intellijdea.plugin.CsvImportAction"
+        <action id="com.nemesis.intellijidea.plugin.action.CsvImportAction" class="com.nemesis.intellijidea.plugin.CsvImportAction"
                 text="Import Csv" description="Imports the current CSV into the configured Nemesis endpoint."
                 icon="/icons/logo.png">
             <add-to-group group-id="ToolsMenu" anchor="first"/>

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.nemesis.intellijdea.plugin;
+package com.nemesis.intellijidea.plugin;
 
 import com.intellij.openapi.util.IconLoader;
 
