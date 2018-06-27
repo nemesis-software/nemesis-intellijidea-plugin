@@ -70,11 +70,9 @@ public class CsvImportAction extends AnAction {
 
             Map.Entry<Boolean, String> result = NemesisHttpClient.importCsv(csvSnippet, url, username, password);
             if (result.getKey()) {
-                Notifications.Bus.notify(new Notification(Notifications.SYSTEM_MESSAGES_GROUP_ID, "Success!", "Csv was imported successfully!",
-                                                          NotificationType.INFORMATION));
+                Notifications.Bus.notify(new Notification(Notifications.SYSTEM_MESSAGES_GROUP_ID, "Success!", "Csv was imported successfully!", NotificationType.INFORMATION));
             } else {
-                Notifications.Bus.notify(
-                                new Notification(Notifications.SYSTEM_MESSAGES_GROUP_ID, "Error!", "Could not import the csv!", NotificationType.ERROR));
+                Notifications.Bus.notify(new Notification(Notifications.SYSTEM_MESSAGES_GROUP_ID, "Error!", "Could not import the csv!", NotificationType.ERROR));
             }
         }
     }
@@ -84,8 +82,10 @@ public class CsvImportAction extends AnAction {
         //Get required data keys
         final Project project = e.getProject();
         final Editor editor = e.getData(CommonDataKeys.EDITOR);
-        //Set visibility only in case of existing project and editor and if some text in the editor is selected
-        e.getPresentation().setVisible(project != null && editor != null && ((EditorImpl) editor).getVirtualFile().getCanonicalPath().endsWith(".csv"));
+        if (editor != null && ((EditorImpl) editor).getVirtualFile() != null && ((EditorImpl) editor).getVirtualFile().getCanonicalPath() != null) {
+            //Set visibility only in case of existing project and editor and if some text in the editor is selected
+            e.getPresentation().setVisible(project != null && ((EditorImpl) editor).getVirtualFile().getCanonicalPath().endsWith(".csv"));
+        }
     }
 
 }

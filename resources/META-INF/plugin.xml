@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nemesis.platform.nemesis-idea-plugin</id>
     <name>Nemesis Plugin for IntelliJIDEA</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <vendor email="support@nemesis.io" url="http://www.nemesis.io">Nemesis Software</vendor>
 
     <description><![CDATA[
@@ -12,7 +12,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
-     This is the first release of the Nemesis IDEA Plugin.
+        Change notes for current release only.
     ]]>
     </change-notes>
 
